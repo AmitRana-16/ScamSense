@@ -75,7 +75,7 @@ function closeModal() {
   const button = document.getElementById("modalButton");
   const dataId = button.getAttribute("data-id");
   currentScreen = dataId;
-  //updateScreen();
+  updateScreen();
 }
 
 /* =========================
