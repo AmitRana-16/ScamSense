@@ -31,7 +31,7 @@ body {
    APP CONTAINER
 ========================= */
 .app {
-  width: 500vw; /* 5 screens */
+  width: 800vw; /* 8 screens */
   height: 100vh;
   display: flex;
   transition: transform 0.8s ease-in-out;
@@ -48,6 +48,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: auto;
 }
 
 /* =========================
@@ -73,11 +74,11 @@ body {
 }
 
 /* =========================
-   CARDS (COMMON)
+   CARDS
 ========================= */
 .card,
 .levels-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.08);
   backdrop-filter: blur(12px);
   padding: 35px 40px;
   border-radius: 16px;
@@ -157,28 +158,12 @@ input {
 }
 
 /* =========================
-   MARGINS / HELPERS
-========================= */
-.mt-r {
-  margin-bottom: 10px;
-}
-
-/* =========================
    LEVELS SCREEN
 ========================= */
-.levels-card {
-  text-align: center;
-}
-
 .level {
   margin-top: 25px;
 }
 
-.level h3 {
-  margin-bottom: 10px;
-}
-
-/* QUESTIONS (LEVEL BUTTONS) */
 .questions {
   display: flex;
   justify-content: center;
@@ -207,10 +192,6 @@ input {
 /* =========================
    QUESTION SCREEN
 ========================= */
-.question-card {
-  text-align: center;
-}
-
 .question-image {
   max-width: 300px;
   width: 100%;
@@ -220,10 +201,8 @@ input {
 
 .question-text {
   margin-bottom: 20px;
-  font-size: 1rem;
 }
 
-/* OPTIONS */
 .options {
   display: flex;
   flex-direction: column;
@@ -234,10 +213,9 @@ input {
   padding: 12px;
   border-radius: 25px;
   border: none;
-  cursor: pointer;
   background: rgba(255,255,255,0.15);
   color: #fff;
-  font-size: 0.95rem;
+  cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
 
@@ -247,7 +225,7 @@ input {
 }
 
 /* =========================
-   MODAL (POPUP)
+   MODAL (TRANSITION)
 ========================= */
 .modal {
   position: fixed;
@@ -257,10 +235,15 @@ input {
   justify-content: center;
   align-items: center;
   z-index: 20;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
-.modal.hidden {
-  display: none;
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .modal-content {
@@ -269,6 +252,15 @@ input {
   border-radius: 16px;
   text-align: center;
   width: 320px;
+
+  transform: scale(0.85);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* =========================
@@ -288,4 +280,32 @@ input {
   .questions {
     flex-wrap: wrap;
   }
+}
+
+.mb-10px{
+  margin-bottom: 10px;
+}
+
+.mt-10px{
+  margin-top: 10px;
+}
+
+.mb-15px{
+  margin-bottom: 15px;
+}
+
+.mt-15px{
+  margin-top: 15px;
+}
+
+.ta-c{
+    text-align: center;
+}
+
+.w--webkit-fill-available{
+  width: -webkit-fill-available;
+}
+
+.h-150px{
+  height: 150px;
 }

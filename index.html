@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ScamSense</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <!-- USER NAME DISPLAY -->
@@ -66,20 +68,20 @@
 
     <!-- SCREEN 4 : LEVELS -->
     <section class="screen">
-      <div class="levels-card">
+      <div class="levels-card ta-c">
         <h2>Select a Level</h2>
 
         <div class="level">
-          <h3>Level 1</h3>
+          <h3 class="mb-10px">Level 1</h3>
           <div class="questions">
-            <button class="question unlocked" onclick="goToQuestion()">Q1</button>
+            <button class="question unlocked" onclick="goToQuestion(4)">Q1</button>
             <button class="question locked">Q2 🔒</button>
             <button class="question locked">Q3 🔒</button>
           </div>
         </div>
 
         <div class="level">
-          <h3>Level 2</h3>
+          <h3 class="mb-10px">Level 2</h3>
           <div class="questions">
             <button class="question locked">Q1 🔒</button>
           </div>
@@ -95,14 +97,83 @@
         <img src="images/l1-q1.png" class="question-image" alt="Evidence image">
 
         <p class="question-text">
+          What in this image looks AI-generated?
+        </p>
+
+        <div class="options">
+          <button onclick="checkAnswer(false, 5, l1q1, l1q1InC)">The goat on the left</button>
+          <button onclick="checkAnswer(false, 5, l1q1, l1q1InC)">The goat on the right</button>
+          <button onclick="checkAnswer(false, 5, l1q1, l1q1InC)">The legs and hooves</button>
+          <button
+            onclick="checkAnswer(true, 5, l1q1, l1q1InC)">Everything
+            in the image
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 6 : LEVEL 1 QUESTION 2 -->
+    <section class="screen">
+      <div class="card question-card">
+        <h2>Level 1 · Question 2</h2>
+
+        <audio controls class="mt-15px mb-15px">
+          <source src="audio/l1-q2.mp3" type="audio/mp3">
+        </audio>
+
+        <p class="question-text">
           What best describes the image above?
         </p>
 
         <div class="options">
-          <button onclick="checkAnswer(false)">Human-made</button>
-          <button onclick="checkAnswer(true)">AI-generated</button>
-          <button onclick="checkAnswer(false)">Manipulated</button>
-          <button onclick="checkAnswer(false)">Inconclusive</button>
+          <button onclick="checkAnswer(false, 6, l1q2)">Human-made</button>
+          <button onclick="checkAnswer(true, 6, l1q2)">AI-generated</button>
+          <button onclick="checkAnswer(false, 6, l1q2)">Manipulated</button>
+          <button onclick="checkAnswer(false, 6, l1q2)">Inconclusive</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 7 : LEVEL 1 QUESTION 3 -->
+    <section class="screen">
+      <div class="card question-card">
+        <h2>Level 1 · Question 3</h2>
+
+        <img src="images/l1-q1.png" class="question-image" alt="Evidence image">
+
+        <p class="question-text">
+          What best describes the image above?
+        </p>
+
+        <div class="options">
+          <button onclick="checkAnswer(false, 7, l1q3)">Human-made</button>
+          <button onclick="checkAnswer(true, 7, l1q3)">AI-generated</button>
+          <button onclick="checkAnswer(false, 7, l1q3)">Manipulated</button>
+          <button onclick="checkAnswer(false, 7, l1q3)">Inconclusive</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 8 : LEVEL 2 QUESTION 1 -->
+    <section class="screen">
+      <div class="card question-card">
+        <h2>Level 2 · Question 1</h2>
+
+        <video controls class="w--webkit-fill-available mt-15px mb-15px h-150px">
+          <source src="video/l2-q1-1.mp4" type="video/mp4">
+        </video>
+
+        <video controls class="w--webkit-fill-available mt-15px mb-15px h-150px">
+          <source src="video/l2-q1-2.mp4" type="video/mp4">
+        </video>
+
+        <p class="question-text">
+          What best describes the image above?
+        </p>
+
+        <div class="options">
+          <button onclick="checkAnswer(false, 7, l2q1)">Human-made</button>
+          <button onclick="checkAnswer(true, 7, l2q1)">AI-generated</button>
         </div>
       </div>
     </section>
@@ -112,12 +183,13 @@
   <!-- RESULT POPUP -->
   <div class="modal hidden" id="resultModal">
     <div class="modal-content">
-      <h2 id="modalTitle"></h2>
-      <p id="modalMessage"></p>
-      <button class="primary-btn" onclick="closeModal()">Continue</button>
+      <h2 id="modalTitle" class="mb-10px"></h2>
+      <p id="modalMessage" class="mb-10px"></p>
+      <button class="primary-btn mt-10px" id="modalButton" onclick="closeModal()">Continue</button>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
