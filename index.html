@@ -2,41 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI or Human?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ScamSense</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <h1>🤖 AI or Human?</h1>
-  <p>Guess whether the content is AI-generated or Human-made</p>
+  <!-- USER NAME DISPLAY -->
+  <div class="user-name" id="userNameDisplay"></div>
 
-  <!-- IMAGE LEVEL -->
-  <div class="card">
-    <h2>Level 1: Image</h2>
-    <img src="images/image1.jpg" alt="Sample" />
-    
-    <div class="options">
-      <button onclick="checkAnswer('AI')">AI Generated</button>
-      <button onclick="checkAnswer('Human')">Human Created</button>
-    </div>
+  <div class="app">
 
-    <p id="result"></p>
-  </div>
+    <!-- SCREEN 1 : LANDING -->
+    <section class="screen">
+      <h1 class="floating-title">ScamSense</h1>
+      <p class="subtitle">
+        Can you identify what is AI-generated and what is real?
+        <br>Test your awareness against modern AI scams.
+      </p>
+      <button class="primary-btn" onclick="goToNext()">Get Started</button>
+    </section>
 
-  <!-- AUDIO -->
-  <div class="card">
-    <h2>Audio Sample</h2>
-    <audio controls>
-      <source src="audio/sample-audio.mp3" type="audio/mpeg">
-    </audio>
-  </div>
+    <!-- SCREEN 2 : NAME INPUT -->
+    <section class="screen">
+      <div class="card">
+        <h2>Before we begin 👋</h2>
+        <p>Tell us your name</p>
 
-  <!-- VIDEO -->
-  <div class="card">
-    <h2>Video Sample</h2>
-    <video controls width="400">
-      <source src="video/sample-video.mp4" type="video/mp4">
-    </video>
+        <input type="text" id="username" placeholder="Enter your name" />
+
+        <div class="button-group">
+          <button class="secondary-btn" onclick="goBack()">Back</button>
+          <button class="primary-btn" onclick="saveName()">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3 : INSTRUCTIONS -->
+    <section class="screen">
+      <div class="card instructions-card">
+        <h2>🕵️ Instructions</h2>
+
+        <div class="instructions">
+          <p>Analyze digital evidence.<br>
+          Identify whether it is <em>AI-generated, human-made, manipulated, or inconclusive</em>.
+          Think like a cyber crime investigator and solve each case.</p>
+
+          <h2 class="mt-r">⚠️ Important Notice</h2>
+
+          This game is designed for educational purposes to raise awareness about
+          <em>AI misuse, deepfakes, misinformation, and cyber fraud</em>.</p>
+        </div>
+
+        <div class="button-group">
+          <button class="secondary-btn btn-mt-20">Skip</button>
+          <button class="primary-btn btn-mt-20">Start Game</button>
+        </div>
+      </div>
+    </section>
+
   </div>
 
   <script src="script.js"></script>
