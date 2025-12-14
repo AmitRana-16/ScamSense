@@ -11,9 +11,11 @@
 body {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-x: hidden;
+  overflow-y: auto; */
   color: #fff;
+  overflow: hidden;
+  touch-action: none;
 }
 
 /* =========================
@@ -32,10 +34,13 @@ body {
    APP CONTAINER
 ========================= */
 .app {
-  width: 900vw; /* 8 screens */
+  width: 900vw;
+  /* 8 screens */
   height: 100vh;
   display: flex;
   transition: transform 0.8s ease-in-out;
+  overflow: hidden;
+  touch-action: none;
 }
 
 /* =========================
@@ -61,9 +66,17 @@ body {
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .subtitle {
@@ -79,12 +92,12 @@ body {
 ========================= */
 .card,
 .levels-card {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   padding: 35px 40px;
   border-radius: 16px;
   width: 420px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .card {
@@ -129,14 +142,14 @@ input {
 
 .primary-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,229,255,0.4);
+  box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
 }
 
 .secondary-btn {
   padding: 14px 30px;
   font-size: 1rem;
   border-radius: 30px;
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   background: transparent;
   color: #fff;
   cursor: pointer;
@@ -144,7 +157,7 @@ input {
 }
 
 .secondary-btn:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
 
@@ -185,8 +198,8 @@ input {
 }
 
 .question.locked {
-  background: rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
   cursor: not-allowed;
 }
 
@@ -214,14 +227,14 @@ input {
   padding: 12px;
   border-radius: 25px;
   border: none;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
 
 .options button:hover {
-  background: rgba(0,229,255,0.4);
+  background: rgba(0, 229, 255, 0.4);
   transform: translateY(-2px);
 }
 
@@ -238,7 +251,7 @@ input {
   width: 100vw;
   height: 100vh;
 
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 
   display: flex;
   justify-content: center;
@@ -298,35 +311,35 @@ input {
   }
 }
 
-.mb-10px{
+.mb-10px {
   margin-bottom: 10px;
 }
 
-.mt-10px{
+.mt-10px {
   margin-top: 10px;
 }
 
-.mb-15px{
+.mb-15px {
   margin-bottom: 15px;
 }
 
-.mt-15px{
+.mt-15px {
   margin-top: 15px;
 }
 
-.ta-c{
-    text-align: center;
+.ta-c {
+  text-align: center;
 }
 
-.w--webkit-fill-available{
+.w--webkit-fill-available {
   width: -webkit-fill-available;
 }
 
-.h-150px{
+.h-150px {
   height: 150px;
 }
 
-.mt-20px{
+.mt-20px {
   margin-top: 20px;
 }
 
@@ -339,7 +352,7 @@ input {
     0 0 20px #D4AF37;
 }
 
-.ml--13px{
+.ml--13px {
   margin-left: -13px;
 }
 
@@ -367,4 +380,8 @@ input {
 #userNameDisplay,
 #scoreDisplay {
   white-space: nowrap;
+}
+
+.d-none{
+  display: none;
 }

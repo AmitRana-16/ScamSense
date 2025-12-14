@@ -65,6 +65,7 @@ function checkAnswer(isCorrect, questionDeatils, data, incorrect) {
   } else {
     title.textContent = "❌ Incorrect";
     msg.innerHTML = incorrect + data;
+    userScore.innerHTML = "Score: " + score;
   }
   const button = document.getElementById("modalButton");
   button.setAttribute("data-id", questionDeatils);
@@ -93,6 +94,16 @@ window.onload = () => {
     userNameDisplay.textContent = `👤 Hello, ${savedName}`;
   }
 };
+
+// Prevent manual touch scrolling on mobile
+document.addEventListener(
+  "touchmove",
+  function (e) {
+    e.preventDefault();
+  },
+  { passive: false }
+);
+
 
 let score = 0;
 
