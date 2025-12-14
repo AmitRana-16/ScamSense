@@ -41,7 +41,7 @@ function saveName() {
   }
 
   localStorage.setItem("scamSenseUser", name);
-  userNameDisplay.textContent = `👤 Hello, ${name}`;
+  userNameDisplay.textContent = `👤 Hello ${name}`;
 
   currentScreen = 2;
   updateScreen();
@@ -91,7 +91,7 @@ function closeModal() {
 window.onload = () => {
   const savedName = localStorage.getItem("scamSenseUser");
   if (savedName) {
-    userNameDisplay.textContent = `👤 Hello, ${savedName}`;
+    userNameDisplay.textContent = `👤 Hello ${savedName}`;
   }
 };
 
