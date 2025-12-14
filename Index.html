@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI or Human?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>🤖 AI or Human?</h1>
+  <p>Guess whether the content is AI-generated or Human-made</p>
+
+  <!-- IMAGE LEVEL -->
+  <div class="card">
+    <h2>Level 1: Image</h2>
+    <img src="images/sample-image.jpg" alt="Sample" />
+    
+    <div class="options">
+      <button onclick="checkAnswer('AI')">AI Generated</button>
+      <button onclick="checkAnswer('Human')">Human Created</button>
+    </div>
+
+    <p id="result"></p>
+  </div>
+
+  <!-- AUDIO -->
+  <div class="card">
+    <h2>Audio Sample</h2>
+    <audio controls>
+      <source src="audio/sample-audio.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="card">
+    <h2>Video Sample</h2>
+    <video controls width="400">
+      <source src="video/sample-video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
