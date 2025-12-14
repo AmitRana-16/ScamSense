@@ -11,7 +11,8 @@
 body {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   color: #fff;
 }
 
@@ -31,7 +32,7 @@ body {
    APP CONTAINER
 ========================= */
 .app {
-  width: 800vw; /* 8 screens */
+  width: 900vw; /* 8 screens */
   height: 100vh;
   display: flex;
   transition: transform 0.8s ease-in-out;
@@ -227,18 +228,31 @@ input {
 /* =========================
    MODAL (TRANSITION)
 ========================= */
+/* =========================
+   MODAL (MOBILE SAFE)
+========================= */
 .modal {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0,0,0,0.7);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 20;
+
+  z-index: 9999;
 
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease;
+
+  /* IMPORTANT for mobile */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal.show {
@@ -248,12 +262,13 @@ input {
 
 .modal-content {
   background: #10232b;
-  padding: 30px;
+  padding: 25px;
   border-radius: 16px;
   text-align: center;
-  width: 320px;
+  width: 90%;
+  max-width: 360px;
 
-  transform: scale(0.85);
+  transform: scale(0.9);
   opacity: 0;
   transition: transform 0.35s ease, opacity 0.35s ease;
 }
@@ -262,6 +277,7 @@ input {
   transform: scale(1);
   opacity: 1;
 }
+
 
 /* =========================
    RESPONSIVE
@@ -308,4 +324,47 @@ input {
 
 .h-150px{
   height: 150px;
+}
+
+.mt-20px{
+  margin-top: 20px;
+}
+
+.glow-gold {
+  color: #F5DEB3;
+  font-weight: bold;
+  text-shadow:
+    0 0 5px #F5DEB3,
+    0 0 10px #F5DEB3,
+    0 0 20px #D4AF37;
+}
+
+.ml--13px{
+  margin-left: -13px;
+}
+
+/* =========================
+   TOP HUD (MOBILE SAFE)
+========================= */
+.hud {
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+
+  font-size: 0.9rem;
+  z-index: 10000;
+}
+
+/* Individual items */
+#userNameDisplay,
+#scoreDisplay {
+  white-space: nowrap;
 }
