@@ -14,8 +14,9 @@ body {
   /* overflow-x: hidden;
   overflow-y: auto; */
   color: #fff;
-  overflow: hidden;
-  touch-action: none;
+  overflow-x: hidden;   /* prevent sideways scroll */
+  overflow-y: auto;     /* allow vertical movement for keyboard */
+  touch-action: pan-y;  /* allow vertical pan, block horizontal */
 }
 
 /* =========================
@@ -40,7 +41,7 @@ body {
   display: flex;
   transition: transform 0.8s ease-in-out;
   overflow: hidden;
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 /* =========================

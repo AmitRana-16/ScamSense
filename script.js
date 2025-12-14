@@ -95,14 +95,14 @@ window.onload = () => {
   }
 };
 
-// Prevent manual touch scrolling on mobile
-document.addEventListener(
-  "touchmove",
-  function (e) {
-    e.preventDefault();
-  },
-  { passive: false }
-);
+const input = document.getElementById("username");
+
+if (input) {
+  input.addEventListener("blur", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
 
 
 let score = 0;
