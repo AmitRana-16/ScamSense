@@ -1,3 +1,6 @@
+/* =========================
+   RESET & BASE
+========================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +15,9 @@ body {
   color: #fff;
 }
 
-/* USER NAME (TOP RIGHT) */
+/* =========================
+   USER NAME (TOP RIGHT)
+========================= */
 .user-name {
   position: fixed;
   top: 20px;
@@ -22,14 +27,19 @@ body {
   z-index: 10;
 }
 
+/* =========================
+   APP CONTAINER
+========================= */
 .app {
-  width: 300vw; /* 3 screens */
+  width: 500vw; /* 5 screens */
   height: 100vh;
   display: flex;
   transition: transform 0.8s ease-in-out;
 }
 
-/* SCREENS */
+/* =========================
+   SCREENS
+========================= */
 .screen {
   width: 100vw;
   height: 100vh;
@@ -40,7 +50,9 @@ body {
   flex-direction: column;
 }
 
-/* TITLE */
+/* =========================
+   LANDING PAGE
+========================= */
 .floating-title {
   font-size: 4rem;
   animation: float 3s ease-in-out infinite;
@@ -53,22 +65,28 @@ body {
 }
 
 .subtitle {
-  max-width: 500px;
+  max-width: 520px;
   text-align: center;
   margin: 20px 0 40px;
   font-size: 1.1rem;
   opacity: 0.9;
 }
 
-/* CARD */
-.card {
-  background: rgba(255,255,255,0.08);
+/* =========================
+   CARDS (COMMON)
+========================= */
+.card,
+.levels-card {
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   padding: 35px 40px;
   border-radius: 16px;
   width: 420px;
-  text-align: center;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.card {
+  text-align: center;
 }
 
 .instructions-card {
@@ -80,7 +98,9 @@ body {
   line-height: 1.5;
 }
 
-/* INPUT */
+/* =========================
+   INPUT
+========================= */
 input {
   margin: 20px 0 30px;
   padding: 12px 18px;
@@ -91,7 +111,9 @@ input {
   font-size: 1rem;
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 .primary-btn {
   padding: 14px 36px;
   font-size: 1rem;
@@ -101,10 +123,6 @@ input {
   color: #000;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-mt-20{
-  margin-top: 20px;
 }
 
 .primary-btn:hover {
@@ -134,18 +152,140 @@ input {
   gap: 15px;
 }
 
-.mt-r{
-  margin-bottom: revert;
+.btn-mt-20 {
+  margin-top: 20px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 480px) {
+/* =========================
+   MARGINS / HELPERS
+========================= */
+.mt-r {
+  margin-bottom: 10px;
+}
+
+/* =========================
+   LEVELS SCREEN
+========================= */
+.levels-card {
+  text-align: center;
+}
+
+.level {
+  margin-top: 25px;
+}
+
+.level h3 {
+  margin-bottom: 10px;
+}
+
+/* QUESTIONS (LEVEL BUTTONS) */
+.questions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.question {
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.question.unlocked {
+  background: #00e5ff;
+  color: #000;
+  cursor: pointer;
+}
+
+.question.locked {
+  background: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
+  cursor: not-allowed;
+}
+
+/* =========================
+   QUESTION SCREEN
+========================= */
+.question-card {
+  text-align: center;
+}
+
+.question-image {
+  max-width: 300px;
+  width: 100%;
+  margin: 20px auto;
+  border-radius: 12px;
+}
+
+.question-text {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* OPTIONS */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.options button {
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.options button:hover {
+  background: rgba(0,229,255,0.4);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MODAL (POPUP)
+========================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #10232b;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  width: 320px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 500px) {
   .floating-title {
     font-size: 2.6rem;
   }
 
-  .card {
+  .card,
+  .levels-card {
     width: 100%;
     padding: 30px;
+  }
+
+  .questions {
+    flex-wrap: wrap;
   }
 }

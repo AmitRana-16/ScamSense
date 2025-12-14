@@ -19,11 +19,7 @@ function goBack() {
 
 function saveName() {
   const name = document.getElementById("username").value.trim();
-
-  if (!name) {
-    alert("Please enter your name");
-    return;
-  }
+  if (!name) return alert("Please enter your name");
 
   localStorage.setItem("scamSenseUser", name);
   userNameDisplay.textContent = `👤 Hello ${name}`;
@@ -32,7 +28,40 @@ function saveName() {
   updateScreen();
 }
 
-/* Load name if already saved */
+function goToLevels() {
+  currentScreen = 3;
+  updateScreen();
+}
+
+function goToQuestion() {
+  currentScreen = 4;
+  updateScreen();
+}
+
+/* ANSWER CHECK */
+function checkAnswer(isCorrect) {
+  const modal = document.getElementById("resultModal");
+  const title = document.getElementById("modalTitle");
+  const msg = document.getElementById("modalMessage");
+
+  if (isCorrect) {
+    title.textContent = "✅ Correct!";
+    msg.textContent =
+      "This image contains visual artifacts and patterns commonly seen in AI-generated content.";
+  } else {
+    title.textContent = "❌ Incorrect";
+    msg.textContent =
+      "Look closely at lighting, textures, and inconsistencies before deciding.";
+  }
+
+  modal.classList.remove("hidden");
+}
+
+function closeModal() {
+  document.getElementById("resultModal").classList.add("hidden");
+}
+
+/* Load name */
 window.onload = () => {
   const savedName = localStorage.getItem("scamSenseUser");
   if (savedName) {

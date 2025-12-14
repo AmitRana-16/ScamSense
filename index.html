@@ -44,23 +44,78 @@
         <h2>🕵️ Instructions</h2>
 
         <div class="instructions">
-          <p>Analyze digital evidence.<br>
-          Identify whether it is <em>AI-generated, human-made, manipulated, or inconclusive</em>.
-          Think like a cyber crime investigator and solve each case.</p>
+          <p>
+            Analyze digital evidence.<br>
+            Identify whether it is <em>AI-generated, human-made, manipulated, or inconclusive</em>.
+            Think like a cyber crime investigator and solve each case.
+          </p>
 
           <h2 class="mt-r">⚠️ Important Notice</h2>
-
-          This game is designed for educational purposes to raise awareness about
-          <em>AI misuse, deepfakes, misinformation, and cyber fraud</em>.</p>
+          <p>
+            This game is designed for educational purposes to raise awareness about
+            <em>AI misuse, deepfakes, misinformation, and cyber fraud</em>.
+          </p>
         </div>
 
         <div class="button-group">
-          <button class="secondary-btn btn-mt-20">Skip</button>
-          <button class="primary-btn btn-mt-20">Start Game</button>
+          <button class="secondary-btn btn-mt-20" onclick="goToLevels()">Skip</button>
+          <button class="primary-btn btn-mt-20" onclick="goToLevels()">Start Game</button>
         </div>
       </div>
     </section>
 
+    <!-- SCREEN 4 : LEVELS -->
+    <section class="screen">
+      <div class="levels-card">
+        <h2>Select a Level</h2>
+
+        <div class="level">
+          <h3>Level 1</h3>
+          <div class="questions">
+            <button class="question unlocked" onclick="goToQuestion()">Q1</button>
+            <button class="question locked">Q2 🔒</button>
+            <button class="question locked">Q3 🔒</button>
+          </div>
+        </div>
+
+        <div class="level">
+          <h3>Level 2</h3>
+          <div class="questions">
+            <button class="question locked">Q1 🔒</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 5 : LEVEL 1 QUESTION 1 -->
+    <section class="screen">
+      <div class="card question-card">
+        <h2>Level 1 · Question 1</h2>
+
+        <img src="images/l1-q1.png" class="question-image" alt="Evidence image">
+
+        <p class="question-text">
+          What best describes the image above?
+        </p>
+
+        <div class="options">
+          <button onclick="checkAnswer(false)">Human-made</button>
+          <button onclick="checkAnswer(true)">AI-generated</button>
+          <button onclick="checkAnswer(false)">Manipulated</button>
+          <button onclick="checkAnswer(false)">Inconclusive</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- RESULT POPUP -->
+  <div class="modal hidden" id="resultModal">
+    <div class="modal-content">
+      <h2 id="modalTitle"></h2>
+      <p id="modalMessage"></p>
+      <button class="primary-btn" onclick="closeModal()">Continue</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
